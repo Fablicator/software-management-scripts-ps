@@ -111,5 +111,6 @@ try{
     }
 }
 
-# & "$PSScriptRoot\main.ps1"
+Update-Manager
+
 Run-ExtScript $PSScriptRoot "main.ps1"

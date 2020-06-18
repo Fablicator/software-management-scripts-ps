@@ -2,6 +2,33 @@ $top_script_path = $args[0]
 $top_script_args = $args[1]
 $top_script_page_title = $args[2]
 
+function Update-Manager {
+    $branch = (git rev-parse --abbrev-ref HEAD)
+
+    git fetch
+
+    $commitcount = (git log $branch..origin/$branch --oneline | Measure-Object).Count
+
+    if(!($commitcount -eq 0)) {
+        Clear-Host
+        Write-Host "The following updates are available:"
+        Write-Host ""
+        git log $branch..origin/$branch --oneline
+        Write-Host ""
+        if(Prompt-YesNo "Would you like to update the software manager?") {
+            Clear-Host
+            Write-Host "Updating software..."
+            git pull origin $branch
+            git reset --hard origin/$branch
+
+            Clear-Host
+            Write-Host "Update complete!"
+            pause
+            exit
+        }
+    }
+}
+
 function Prompt-YesNo ($prompt) {
     Write-Host "$prompt [y,n]"
     Write-Host ""
