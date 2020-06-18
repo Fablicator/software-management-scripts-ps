@@ -64,7 +64,7 @@ do {
     Write-Host ""
     Write-Host "    'u' - Update Fablicator Interface"
     Write-Host "    'l' - Load default config"
-    Write-Host "    'x' - Go back to main menu" -ForegroundColor Red
+    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
     Write-Host ""
 
     do {
@@ -76,7 +76,7 @@ do {
         }elseif($opt -match 'l') {
             Load-DefaultConfig
             break
-        }elseif($opt -match 'x') {
+        }elseif($opt -match '.') {
             exit
         }
     } while ($true)

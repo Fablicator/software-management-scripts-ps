@@ -77,7 +77,7 @@ do {
     Write-Host ""
     Write-Host "    'u' - Update KISSlicer"
     Write-Host "    'l' - Load KISSlicer defaults"
-    Write-Host "    'x' - Go back to main menu" -ForegroundColor Red
+    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
     Write-Host ""
 
     do {
@@ -92,7 +92,7 @@ do {
             Write-Host "Default profiles loaded"
             Start-Sleep -Seconds 1
             break
-        }elseif($opt -match 'x') {
+        }elseif($opt -match '.') {
             exit
         }
     } while ($true)

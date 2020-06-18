@@ -90,7 +90,7 @@ function Run-MainMenu {
     Write-Host "    'w' - Write firmware to control board"
     Write-Host "    'l' - Load default calibration"
     Write-Host "    'c' - Change calibration"
-    Write-Host "    'x' - Go back to main menu" -ForegroundColor Red
+    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
     Write-Host ""
 
     do {
@@ -104,7 +104,7 @@ function Run-MainMenu {
         }elseif ($opt -match 'c') {
             Calibrate-Marlin
             break
-        }elseif ($opt -match 'x') {
+        }elseif ($opt -match '.') {
             return $false
         }elseif ($opt -match 'w') {
             Write-Firmware
