@@ -32,14 +32,13 @@ function Update-Marlin {
 }
 
 function Calibrate-Marlin {
-    Run-ExtScript "$marlin_path\Scripts\ps\" "calibrate.ps1"
+    Run-ExtScript "$PSScriptRoot" "calibrate-marlin.ps1"
 }
 function Load-Defaults {
     # Set-Location $marlin_path
     # Start-Process powershell ".\Script\ps\loaddefaults.ps1" -NoNewWindow -Wait
     # Set-Location $PSScriptRoot
-    # Run-ExtScript "$marlin_path\Scripts\ps\" "loaddefaults.ps1"
-
+    Run-ExtScript "$marlin_path\Scripts\ps\" "loaddefaults.ps1"
 }
 function Install-Marlin {
     git clone $marlin_repo --branch $marlin_branch $marlin_path
