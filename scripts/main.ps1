@@ -5,7 +5,7 @@
 
 do {
     Clear-Page
-    Write-Host "Enter the letter for the following option"
+    Write-Host "Press the letter for the following option"
     Write-Host ""
     Write-Host "    'k' - Manage KISSlicer"
     Write-Host "    'f' - Manage Fablicator Interface"
@@ -13,7 +13,7 @@ do {
     Write-Host ""
 
     do {
-        $opt = Read-Host "Enter choice"
+        $opt = (Get-Host).UI.RawUI.ReadKey().Character;
     
         if($opt -match 'k') {
             & "$PSScriptRoot\manage-kiss.ps1"
@@ -25,5 +25,6 @@ do {
             & "$PSScriptRoot\manage-fablicator.ps1"
             break 
         }
+        Start-Sleep 0.5
     } while ($true)
 } while ($true)

@@ -68,7 +68,7 @@ do {
     Write-Host ""
 
     do {
-        $opt = Read-Host "Enter choice"
+        $opt = (Get-Host).UI.RawUI.ReadKey().Character;
     
         if($opt -match 'u') {
             Update-Software
@@ -79,5 +79,6 @@ do {
         }elseif($opt -match '.') {
             exit
         }
+        Start-Sleep 0.5
     } while ($true)
 } while ($true)

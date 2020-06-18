@@ -14,7 +14,7 @@ function Run-MainMenu {
     Write-Host ""
 
     do {
-        $opt = Read-Host "Enter choice"
+        $opt = (Get-Host).UI.RawUI.ReadKey().Character;
         if ($opt -match 'z') {
             Run-ExtScript "$marlin_path\Scripts\ps\" "z_calibration.ps1"
             break
@@ -25,6 +25,7 @@ function Run-MainMenu {
         }elseif ($opt -match '.') {
             return $false
         }
+        Start-Sleep 0.5
     }while($true)
 
     return $true

@@ -94,7 +94,7 @@ function Run-MainMenu {
     Write-Host ""
 
     do {
-        $opt = Read-Host "Enter choice"
+        $opt = (Get-Host).UI.RawUI.ReadKey().Character;
         if($opt -match 'u') {
             Update-Marlin
             break
@@ -110,6 +110,7 @@ function Run-MainMenu {
             Write-Firmware
             break
         }
+        Start-Sleep 0.5
     }while($true)
 
     return $true
