@@ -5,10 +5,12 @@
 
 do {
     Clear-Page
-    Write-Host "Press the letter for the following option"
+    Write-Host "Press one of the keys to make a choice: "
     Write-Host ""
     Write-Host "    'k' - Manage KISSlicer"
+    Write-Host ""
     Write-Host "    'f' - Manage Fablicator Interface"
+    Write-Host ""
     Write-Host "    'm' - Manage Marlin"
     Write-Host ""
 

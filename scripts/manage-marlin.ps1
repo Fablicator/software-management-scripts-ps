@@ -34,12 +34,7 @@ function Update-Marlin {
 function Calibrate-Marlin {
     Run-ExtScript "$PSScriptRoot" "calibrate-marlin.ps1"
 }
-function Load-Defaults {
-    # Set-Location $marlin_path
-    # Start-Process powershell ".\Script\ps\loaddefaults.ps1" -NoNewWindow -Wait
-    # Set-Location $PSScriptRoot
-    Run-ExtScript "$marlin_path\Scripts\ps\" "loaddefaults.ps1"
-}
+
 function Install-Marlin {
     git clone $marlin_repo --branch $marlin_branch $marlin_path
     Load-Defaults
@@ -84,12 +79,14 @@ function Check-Install {
 
 function Run-MainMenu {
     Clear-Page
-    Write-Host "Enter the letter for the following option"
+    Write-Host "Press one of the keys to make a choice: "
     Write-Host ""
     Write-Host "    'u' - Update firmware"
+    Write-Host ""
     Write-Host "    'w' - Write firmware to control board"
-    Write-Host "    'l' - Load default calibration"
+    Write-Host ""
     Write-Host "    'c' - Change calibration"
+    Write-Host ""
     Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
     Write-Host ""
 
@@ -97,9 +94,6 @@ function Run-MainMenu {
         $opt = (Get-Host).UI.RawUI.ReadKey().Character;
         if($opt -match 'u') {
             Update-Marlin
-            break
-        }elseif ($opt -match 'l') {
-            Load-Defaults
             break
         }elseif ($opt -match 'c') {
             Calibrate-Marlin

@@ -4,12 +4,19 @@ $marlin_path = "C:\Fablicator\Marlin"
 $marlin_repo = "https://github.com/Fablicator/Marlin.git"
 $marlin_branch = "fablicator-1.1.x-stable"
 
+function Load-Defaults {
+}
+
 function Run-MainMenu {
     Clear-Page
-    Write-Host "Enter the letter for the following option"
+    Write-Host "Press one of the keys to make a choice: "
+    Write-Host ""
+    Write-Host "    'l' - Load default calibration"
     Write-Host ""
     Write-Host "    'z' - Calibrate Z axis (Bed height)"
+    Write-Host ""
     Write-Host "    'x' - Calibrate X axis"
+    Write-Host ""
     Write-Host "    '.' - Go back to Marlin manager" -ForegroundColor Red
     Write-Host ""
 
@@ -17,6 +24,9 @@ function Run-MainMenu {
         $opt = (Get-Host).UI.RawUI.ReadKey().Character;
         if ($opt -match 'z') {
             Run-ExtScript "$marlin_path\Scripts\ps\" "z_calibration.ps1"
+            break
+        }elseif ($opt -match 'l') {
+            Run-ExtScript "$marlin_path\Scripts\ps\" "loaddefaults.ps1"
             break
         }elseif ($opt -match 'x') {
             Run-ExtScript "$marlin_path\Scripts\ps\" "x_calibration.ps1"

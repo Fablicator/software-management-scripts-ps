@@ -73,10 +73,12 @@ if(Test-Path -Path $kiss_path) {
 ## Main KISSlicer menu
 do {
     Clear-Page
-    Write-Host "Enter the letter for the following option"
+    Write-Host "Press one of the keys to make a choice: "
     Write-Host ""
     Write-Host "    'u' - Update KISSlicer"
+    Write-Host ""
     Write-Host "    'l' - Load KISSlicer defaults"
+    Write-Host ""
     Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
     Write-Host ""
 
