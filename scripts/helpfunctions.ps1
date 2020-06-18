@@ -68,6 +68,7 @@ function Clear-Page {
     Clear-Host
     Write-HostCenter "###  Fablicator Software Management Script - $top_script_page_title  ###"
     Write-Host ""
+    (Get-Host).UI.RawUI.WindowTitle = "Fablicator Software Management Script - $top_script_page_title"
 }
 
 function Choco-Install ($pkgname) {
