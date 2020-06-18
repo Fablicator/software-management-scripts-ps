@@ -16,10 +16,12 @@ $newsize.width = 100           # Set the new Window Width to 120 columns.
 $newsize.height = 30            # Set the new Window Width to 120 columns.
 $pswindow.windowsize = $newsize # Set the new Window Size as active.
 
-$newSize =$psWindow.BufferSize
+$newSize =$pswindow.BufferSize
 $newSize.Width = 100
 $newSize.Height = 30
-$psWindow.BufferSize = $newSize
+$pswindow.BufferSize = $newSize
+
+$pswindow.CursorSize = 0
 
 Clear-Page
 # System dependency check
