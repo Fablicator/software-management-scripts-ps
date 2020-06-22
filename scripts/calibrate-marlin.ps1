@@ -40,18 +40,17 @@ function Run-MainMenu {
     do {
         $opt = (Get-Host).UI.RawUI.ReadKey().Character;
         if ($opt -match 'z') {
-            # if(Warning) {
+                Clear-Host
                 Run-ExtScript "$marlin_path\Scripts\ps\" "z_calibration.ps1"
-            # }
             break
         }elseif ($opt -match 'l') {
+            Clear-Host
             Run-ExtScript "$marlin_path\Scripts\ps\" "loaddefaults.ps1"
             break
         }elseif ($opt -match 'x') {
-            # if(Warning) {
+                Clear-Host
                 Run-ExtScript "$marlin_path\Scripts\ps\" "x_calibration.ps1"
                 Calibrate-Marlin
-            # }
             break
         }elseif ($opt -match '.') {
             return $false
