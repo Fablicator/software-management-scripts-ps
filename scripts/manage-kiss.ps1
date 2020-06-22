@@ -19,11 +19,11 @@ function Load-KISSDefaults {
 }
 
 function Install-KISS {
-    Write-Host "What kind of machine do you have?"
+    Write-Host (Center "What kind of machine do you have?")
     Write-Host ""
-    Write-Host "    'mx'    - Fablicator MX"
-    Write-Host "    'sx'    - Fablicator SX"
-    Write-Host "    'fm1'   - Fablicator FM-1"
+    Write-Host (Center "'mx'    - Fablicator MX  ")
+    Write-Host (Center "'sx'    - Fablicator SX  ")
+    Write-Host (Center "'fm1'   - Fablicator FM-1")
     Write-Host ""
     do{ 
         $machine_type = Read-Host "Enter choice"
@@ -73,13 +73,13 @@ if(Test-Path -Path $kiss_path) {
 ## Main KISSlicer menu
 do {
     Clear-Page
-    Write-Host "Press one of the keys to make a choice: "
+    Write-Host (Center "Press one of the keys to make a choice:")
     Write-Host ""
-    Write-Host "    'u' - Update KISSlicer"
+    Write-Host (Center "'u' - Update KISSlicer       ")
     Write-Host ""
-    Write-Host "    'l' - Load KISSlicer defaults"
+    Write-Host (Center "'l' - Load KISSlicer defaults")
     Write-Host ""
-    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
+    Write-Host (Center "'.' - Go back to main menu   ") -ForegroundColor Red
     Write-Host ""
 
     do {

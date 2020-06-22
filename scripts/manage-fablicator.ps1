@@ -60,13 +60,13 @@ if(Test-Path -Path $software_path) {
 ## Main menu
 do {
     Clear-Page
-    Write-Host "Press one of the keys to make a choice: "
+    Write-Host (Center "Press one of the keys to make a choice: ")
     Write-Host ""
-    Write-Host "    'u' - Update Fablicator Interface"
+    Write-Host (Center "'u' - Update Fablicator Interface")
     Write-Host ""
-    Write-Host "    'l' - Load default config"
+    Write-Host (Center "'l' - Load default config        ")
     Write-Host ""
-    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
+    Write-Host (Center "'.' - Go back to main menu       ") -ForegroundColor Red
     Write-Host ""
 
     do {

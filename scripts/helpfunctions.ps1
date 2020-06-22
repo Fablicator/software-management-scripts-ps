@@ -42,8 +42,11 @@ function Prompt-YesNo ($prompt) {
     } while ($true)
 }
 
-function Write-HostCenter { param($Message) Write-Host ("{0}{1}" -f (' ' * (([Math]::Max(0, $Host.UI.RawUI.BufferSize.Width / 2) - [Math]::Floor($Message.Length / 2)))), $Message) }
+# function Write-HostCenter { param($Message) Write-Host ("{0}{1}" -f (' ' * (([Math]::Max(0, $Host.UI.RawUI.BufferSize.Width / 2) - [Math]::Floor($Message.Length / 2)))), $Message) }
 
+function Center($Text) {
+    return ("{0}{1}" -f (' ' * (([Math]::Max(0, $Host.UI.RawUI.BufferSize.Width / 2) - [Math]::Floor($Text.Length / 2)))), $Text)
+}
 function Request-RunElevated{  
     if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
         Write-Host "Manager is requesting to be run as admin"
@@ -66,7 +69,7 @@ function Check-Elevation {
 
 function Clear-Page {
     Clear-Host
-    Write-HostCenter "###  Fablicator Software Management Script - $top_script_page_title  ###"
+    Write-Host (Center "###  Fablicator Software Management Script - $top_script_page_title  ###")
     Write-Host ""
     (Get-Host).UI.RawUI.WindowTitle = "Fablicator Software Management Script - $top_script_page_title"
 }

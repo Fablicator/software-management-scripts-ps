@@ -9,16 +9,16 @@ $marlin_branch = "fablicator-1.1.x-stable"
 
 function Write-Firmware {
     Clear-Page
-    Write-HostCenter "!!!! WARNING !!!!"
+    Write-Host (Center "WARNING WARNING WARNING WARNING") -ForegroundColor Red
     Write-Host ""
-    Write-HostCenter "This will upload the current version of the Marlin Firmware"
+    Write-Host (Center "This will upload the current version of the Marlin Firmware")
     Write-Host ""
-    Write-HostCenter "Please ensure the cablibration is correct or your machine may be damaged."
-    Write-HostCenter "(If you just updated the firmware, the calibration should be the same.)"
+    Write-Host (Center "Please ensure the cablibration is correct or your machine may be damaged.")
+    Write-Host (Center "(If you just updated the firmware, the calibration should be the same.)")
     Write-Host ""
-    Write-HostCenter "This process will close the Fablicator Interface if it's runnning!"
+    Write-Host (Center "This process will close the Fablicator Interface if it's runnning!")
     Write-Host ""
-    Write-HostCenter "!!!! WARNING !!!!"
+    Write-Host (Center "WARNING WARNING WARNING WARNING") -ForegroundColor Red
     Write-Host ""
     Write-Host ""
     $should_write = Prompt-YesNo "Would you like to upload the firmware to the control board?"
@@ -79,15 +79,15 @@ function Check-Install {
 
 function Run-MainMenu {
     Clear-Page
-    Write-Host "Press one of the keys to make a choice: "
+    Write-Host (Center "Press one of the keys to make a choice: ")
     Write-Host ""
-    Write-Host "    'u' - Update firmware"
+    Write-Host (Center "'u' - Update firmware                ")
     Write-Host ""
-    Write-Host "    'w' - Write firmware to control board"
+    Write-Host (Center "'w' - Write firmware to control board")
     Write-Host ""
-    Write-Host "    'c' - Change calibration"
+    Write-Host (Center "'c' - Change calibration             ")
     Write-Host ""
-    Write-Host "    '.' - Go back to main menu" -ForegroundColor Red
+    Write-Host (Center "'.' - Go back to main menu           ") -ForegroundColor Red
     Write-Host ""
 
     do {
