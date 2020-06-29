@@ -8,9 +8,12 @@ $software_repo = "https://github.com/Fablicator/Fablicator-Software-Dist.git"
 $software_branch = "fablicator-interface"
 
 function Update-Software {
-    Set-Location $software_path
-    & ".\Scripts\ps\update.ps1"
-    Set-Location $PSScriptRoot
+    Clear-Host
+    if(Prompt-CloseProcess "fablicator" "Fablicator Interface") {
+        Set-Location $software_path
+        & ".\Scripts\ps\update.ps1"
+        Set-Location $PSScriptRoot
+    }
 }
 
 function Load-DefaultConfig {

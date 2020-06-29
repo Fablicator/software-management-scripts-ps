@@ -7,9 +7,12 @@ $kiss_path = "C:\Fablicator\KISSlicer"
 $kiss_repo = "https://github.com/Fablicator/Fablicator-Software-Dist.git"
 
 function Update-KISS {
-    Set-Location $kiss_path
-    & ".\Scripts\ps\update.ps1"
-    Set-Location $PSScriptRoot
+    Clear-Host
+    if(Prompt-CloseProcess "KISSlicer64" "KISSlicer") {
+        Set-Location $kiss_path
+        & ".\Scripts\ps\update.ps1"
+        Set-Location $PSScriptRoot
+    }
 }
 
 function Load-KISSDefaults {

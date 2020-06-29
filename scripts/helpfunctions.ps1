@@ -106,3 +106,20 @@ function Run-ExtScript($path, $file) {
     Start-Process powershell "-ExecutionPolicy Bypass -File $file" -NoNewWindow -Wait
     Set-Location $PSScriptRoot
 }
+
+function Prompt-CloseProcess($process_name, $print_name) {
+    if(Get-Process "$process_name" -ErrorAction "SilentlyContinue") {
+        Write-Host ""
+        Write-Host ""
+        Write-Host ""
+        Write-Host (Center "Please close $print_name")
+        Write-Host ""
+        Write-Host (Center "Continuing without closing will abort") -ForegroundColor Red
+        Write-Host ""
+        Pause
+        if(Get-Process "$process_name" -ErrorAction "SilentlyContinue") {
+            return $false
+        }
+    }
+    return $true
+}
